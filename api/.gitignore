@@ -1,0 +1,77 @@
+# Build artifacts
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+*.rsuser
+*.sln.docstates
+
+# Rider/JetBrains
+.idea/
+*.sln.iml
+
+# User-specific files
+*.userosscache
+*.userprefs
+*.csproj.user
+*.csproj.DotSettings
+
+# Logs
+*.log
+logs/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Dependencies
+packages/
+*.nupkg
+*.snupkg
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Entity Framework Migrations
+Migrations/
+
+# Coverage files
+coverage/
+*.coverage
+*.coveragexml
+*.opencover.xml
+
+# Temporary files
+*.tmp
+*.temp
+*.pid
+*.gz
+*.swp
+*.lock
+*.bak
+*.old
+
+# Publish artifacts
+*.publish/
+*.pdb
+
+# Configuration
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Production.json
+
+# Secrets
+secrets.json
+
+# Environment variables
+.env
+
+# Generated files
+*.Generated.cs
