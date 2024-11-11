@@ -30,7 +30,7 @@ public class AdvisorsController : ControllerBase
     }
 
     [HttpGet("GetAll/{page}/{pageSize}")]
-    public async Task<ActionResult<AdvisorDto>> GetAllAdvisors(string filter = "", int page = 0, int pageSize = 10)
+    public async Task<ActionResult<PagedResult<AdvisorDto>>> GetAllAdvisors(string filter = "", int page = 0, int pageSize = 10)
     {
         var advisors = await _advisorService.GetPagedAdvisorsAsync(page, pageSize, filter);
         if (advisors == null)

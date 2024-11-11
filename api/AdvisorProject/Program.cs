@@ -10,6 +10,18 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() ?? [];
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowClientApp",
+        builder =>
+        {
+            builder.WithOrigins(allowedOrigins)
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
 // Configure Serilog to write logs to a file in the "logs" folder
 builder.Host.UseSerilog((context, services, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
@@ -53,5 +65,8 @@ else
 
 
 app.MapControllers();
+
+
+app.UseCors("AllowClientApp");
 
 app.Run();
