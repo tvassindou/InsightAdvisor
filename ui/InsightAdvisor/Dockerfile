@@ -1,17 +1,28 @@
 #Step 1: Build the Angular application
-FROM node:18 AS build
+FROM node:21-alpine AS build
+
+# Copy dependency definitions
+COPY package*.json ./
+
+RUN npm i && mkdir /app && mv ./node_modules ./app
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build --prod
 
-# Step 2: Serving with nginx
-FROM nginx:alpine
+COPY . /app/
 
-COPY --from=build /app/dist/insight-advisor /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# Build server side bundles
+RUN npm run build
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Step 2: Serving with node
+
+FROM node:21-alpine
+
+COPY --from=build /app /app
+
+WORKDIR /app
+
+EXPOSE 4000
+
+USER node
+
+CMD ["node", "dist/insight-advisor/server/server.mjs"]

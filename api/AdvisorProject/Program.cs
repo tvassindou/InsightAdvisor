@@ -54,9 +54,11 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.InitialDbBuilder();
 
-//  Don"t do this in production !!
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 
 app.MapControllers();
