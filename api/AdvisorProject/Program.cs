@@ -4,7 +4,7 @@ using AdvisorProject.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using AdvisorProject.Application;
 using AdvisorProject.Filters;
-using AdvisorProject.Ioc;
+using AdvisorProject.Extensions;
 using AdvisorProject.ErrorHandling;
 using Serilog;
 
@@ -52,16 +52,11 @@ var app = builder.Build();
 // Use error handling middleware
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-else
-{
-    app.UseHttpsRedirection();
-}
+app.InitialDbBuilder();
+
+//  Don"t do this in production !!
+app.UseSwagger();
+app.UseSwaggerUI();
 
 
 app.MapControllers();

@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  ui-app:
+    build:
+      context: ./ui/Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - api-service
+    networks:
+      - app-network
+
+  api-service:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5212:8080"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

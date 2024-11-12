@@ -1,1 +1,21 @@
-<app-header title="Advisor Details"/>
+<app-header title="Advisor Details" backLink="/advisors/list"/>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-1">
+        </div>
+        <div class="col-md-10">
+            <h2>Advisor Details (ID: {{ advisorDetails!.id }})</h2>
+            <p><strong>Full Name:</strong> {{ advisorDetails!.fullName }}</p>
+            <p><strong>SIN:</strong> {{ advisorDetails!.sin }}</p>
+            <p><strong>Phone Number:</strong> {{ advisorDetails!.phoneNumber }}</p>
+            <p><strong>Address:</strong> {{ advisorDetails!.address }}</p>
+            <p><strong>Health Status:</strong> {{ advisorDetails!.healthStatus }}</p>
+
+            <div class="d-flex justify-content-center align-items-center mt-2">
+                <a [routerLink]="['/advisors/edit', advisorDetails!.id]" class="btn btn-primary btn-lg">Go to Edit</a>
+            </div>
+        </div>
+        <div class="col col-lg-1">
+        </div>
+    </div>
+</div>

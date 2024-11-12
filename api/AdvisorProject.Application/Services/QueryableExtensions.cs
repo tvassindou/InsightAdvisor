@@ -2,9 +2,6 @@ using System.Linq.Expressions;
 
 namespace AdvisorProject.Application.Services;
 
-/// <summary>
-/// Base ABp.Linq.Extensions
-/// </summary>
 public static class QueryableExtensions
 {
     /// <summary>

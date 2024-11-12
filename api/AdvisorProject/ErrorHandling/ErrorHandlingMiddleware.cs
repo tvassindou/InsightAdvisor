@@ -17,7 +17,7 @@ public class ErrorHandlingMiddleware
     {
         try
         {
-            await _next(context); // Appel au middleware suivant
+            await _next(context); 
         }
         catch (Exception ex)
         {
@@ -35,11 +35,9 @@ public class ErrorHandlingMiddleware
             Result = null
         };
 
-        // Définir le code de statut en fonction de l'exception (500 par défaut)
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
         context.Response.ContentType = "application/json";
 
-        // Convertir la réponse en JSON et l'envoyer
         var jsonResponse = JsonSerializer.Serialize(response);
         return context.Response.WriteAsync(jsonResponse);
     }

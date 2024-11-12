@@ -105,7 +105,7 @@ public class AdvisorsControllerTests
     public async Task UpdateAdvisor_ReturnsNoContent_WhenUpdateIsSuccessful()
     {
         // Arrange
-        var updateDto = new UpdateAdvisorDto { FullName = "John Smith", SIN = "12374859" };
+        var updateDto = new UpdateAdvisorDto { FullName = "John Smith", Address = "Another Address" };
         _advisorServiceMock.Setup(s => s.UpdateAdvisorAsync(1, updateDto)).ReturnsAsync(true);
 
         // Act
@@ -119,7 +119,7 @@ public class AdvisorsControllerTests
     public async Task UpdateAdvisor_ReturnsNotFound_WhenAdvisorDoesNotExist()
     {
         // Arrange
-        var updateDto = new UpdateAdvisorDto { FullName = "John Smith", SIN = "12374859" };
+        var updateDto = new UpdateAdvisorDto { FullName = "John Smith", Address = "My Address" };
         _advisorServiceMock.Setup(s => s.UpdateAdvisorAsync(1, updateDto)).ReturnsAsync(false);
 
         // Act

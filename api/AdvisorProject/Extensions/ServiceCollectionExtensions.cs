@@ -2,7 +2,7 @@ using System.Reflection;
 using AdvisorProject.Core.Interfaces;
 using AdvisorProject.Infrastructure.Repositories;
 
-namespace AdvisorProject.Ioc;
+namespace AdvisorProject.Extensions;
 public static class ServiceCollectionExtensions
 {
 

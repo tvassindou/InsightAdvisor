@@ -66,7 +66,7 @@ public class AdvisorServiceTests
     {
         // Arrange
         var advisor = new Advisor { Id = 1, FullName = "John Doe", SIN = "987654321" };
-        var updateDto = new UpdateAdvisorDto { FullName = "John Smith", SIN = "123456789" };
+        var updateDto = new UpdateAdvisorDto { FullName = "John Smith", Address = "My Address" };
 
         _unitOfWorkMock.Setup(uow => uow.Advisors.GetByIdAsync(1)).ReturnsAsync(advisor);
         _mapperMock.Setup(m => m.Map(updateDto, advisor)).Callback(() => advisor.FullName = updateDto.FullName);

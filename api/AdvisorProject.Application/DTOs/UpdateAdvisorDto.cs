@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 namespace AdvisorProject.Application.DTOs;
 public class UpdateAdvisorDto
 {
-    [Required]
+    [StringLength(255, ErrorMessage = "Full name must not exceed 100 characters.")]
     public required string FullName { get; set; }
-    [Required]
-    public required string SIN { get; set; }
+    [StringLength(255, ErrorMessage = "Address cannot exceed 255 characters.")]
     public string? Address { get; set; }
-    public string? PhoneNumber { get; set; }
 }

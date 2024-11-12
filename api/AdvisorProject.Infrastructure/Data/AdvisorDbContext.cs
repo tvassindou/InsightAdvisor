@@ -34,8 +34,7 @@ public class AdvisorDbContext : DbContext
                     .HasMaxLength(10)
                     .IsFixedLength();
 
-                entity.Property(a => a.HealthStatus)
-                    .HasConversion<int>();
+                entity.Property(a => a.HealthStatus);
             });
     }
 

@@ -7,8 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:InsightAdvisor": "node dist/insight-advisor/server/server.mjs",
-    "nswag": "cd nswag/ && nswag run"
+    "serve:ssr:InsightAdvisor": "node dist/insight-advisor/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -44,7 +43,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "nswag": "^14.1.0",
     "typescript": "~5.5.2"
   }
 }
